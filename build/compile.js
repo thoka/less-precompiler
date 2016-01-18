@@ -3,9 +3,7 @@ var less = require('less'),
     utils = require('kanso-utils/utils'),
     spawn = require('child_process').spawn,
     attachments = require('kanso-utils/attachments'),
-    fs = require('fs'),
-    path = require('path');
-
+    fs = require('fs');
 
 function compileLess(doc, project_path, f, compress, callback) {
     /**
@@ -13,7 +11,7 @@ function compileLess(doc, project_path, f, compress, callback) {
      * doesn't exist, so check early for that and report something
      * sensible
      */
-    path.exists(f, function (exists) {
+    fs.exists(f, function (exists) {
         if (!exists) {
             return callback(new Error('File does not exist: ' + f));
         }
